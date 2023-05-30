@@ -1,0 +1,224 @@
+@import 'variables';
+@import 'initial';
+@import 'mixins';
+
+.main-container {
+    width: 375px;
+    margin: auto;
+
+    &__background-section {
+        background-image: url('../images/bg-main-mobile.png');
+        height: 240px;
+        background-repeat: no-repeat;
+        position: relative;
+    }
+
+    &__form-section {
+        padding: 90px 24px 45px;
+    }
+
+    @media (min-width:1440px) {
+        width: 1440px;
+        display: flex;
+
+        &__background-section {
+            background-image: url('../images/bg-main-desktop.png');
+            height: 900px;
+            width: 900px;
+        }
+
+    }
+}
+
+.card {
+    @include card('../images/bg-card-front.png');
+    @include card-position(126px, 18px, 187px, 167px);
+    z-index: 1;
+    letter-spacing: 2px;
+
+    &__logo {
+        width: 55px;
+        margin-bottom: 30px;
+    }
+
+    &__number {
+        margin-bottom: 15px;
+    }
+
+    &__details {
+        display: flex;
+        font-size: 0.7rem;
+        justify-content: space-between;
+        text-transform: uppercase;
+    }
+
+    @media (min-width:1440px) {
+        &__logo {
+            width: 86px;
+            margin-bottom: 55px;
+        }
+
+        &__number {
+            font-size: 1.6em;
+            margin-bottom: 25px;
+        }
+
+        &__details {
+            font-size: 0.9rem;
+        }
+    }
+}
+
+.card-back {
+    @include card('../images/bg-card-back.png');
+    @include card-position(-125px, 75px, 205px, 257px);
+    letter-spacing: 2px;
+
+    &__cvc {
+        font-size: 0.7rem;
+        margin-top: 49px;
+        margin-right: 11px;
+        text-align: right;
+    }
+
+    @media (min-width:1440px) {
+        &__cvc {
+            font-size: 1em;
+            margin-top: 76px;
+            margin-right: 14px;
+        }
+    }
+}
+
+
+.form {
+    // display: none;
+
+    &__label {
+        text-transform: uppercase;
+        font-size: 0.65em;
+        letter-spacing: 2px;
+        display: block;
+        margin-bottom: 8px;
+        color: $Very-dark-violet;
+        font-weight: bold;
+    }
+
+    &__input {
+        width: 100%;
+        height: 40px;
+        margin-bottom: 18px;
+        border-radius: 4px;
+        font-family: $font;
+        border: 1px solid $Light-grayish-violet;
+        padding-left: 10px;
+        font-size: 1em;
+        outline: none;
+
+        &::placeholder {
+            color: $Light-grayish-violet;
+        }
+    }
+
+    &__date-cvc {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 16px;
+    }
+
+    &__date {
+        display: flex;
+        gap: 10px;
+    }
+
+    &__submit {
+        background-color: $Very-dark-violet;
+        color: $Light-grayish-violet;
+        width: 100%;
+        height: 50px;
+        border-radius: 8px;
+        font-size: 1em;
+        letter-spacing: 1px;
+        font-family: $font;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    @media (min-width:1440px) {
+        margin-top: 180px;
+        min-height: 100%;
+        width: 385px;
+
+        &__input {
+            margin-bottom: 40px;
+        }
+    }
+}
+
+.error {
+    color: $red;
+    margin: -10px 0 18px;
+    font-size: 0.6em;
+}
+
+.form__errors-container {
+    display: flex;
+
+}
+
+.form__errors-container div {
+    width: 100px;
+    text-align: center;
+}
+
+.thanks-section {
+    display: none;
+    width: 375px;
+    margin: auto;
+    margin-bottom: 60px;
+    margin-left: -23px;
+
+    &__img {
+        display: block;
+        margin: auto;
+        margin-bottom: 30px;
+    }
+
+    &__title {
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 400;
+        letter-spacing: 4px;
+        color: $Very-dark-violet;
+        margin-bottom: 24px;
+    }
+
+    &__text {
+        text-align: center;
+        color: $Dark-grayish-violet;
+        font-size: 1.1em;
+        margin-bottom: 24px;
+    }
+
+    &__button {
+        @extend .form__submit;
+    }
+
+    @media (min-width:1440px){
+        margin-top: 180px;
+    
+    }
+
+}
+
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
